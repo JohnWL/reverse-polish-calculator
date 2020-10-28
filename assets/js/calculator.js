@@ -35,8 +35,11 @@ jQuery(document).ready(function($) {
 
 	$('.form-signin').submit(function(e) {
 		e.preventDefault();
+
+		let inputField = $('#inputText');
 		
-		let input = reversePolish( $('#inputText').val() );
+		let input = reversePolish( inputField.val() );
+		inputField.val('');
 
 		$('.response').text(input);
 	});
