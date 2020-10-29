@@ -22,5 +22,5 @@ jQuery is used to collect the input field value after a form submission with the
 Add the project to your server and visit index.html in a browser. Visit tests.html to run the test suite.
 
 ## Demo
-https://realpage.johnlander.me
-https://realpage.johnlander.me/tests.html
+- https://realpage.johnlander.me
+- https://realpage.johnlander.me/tests.html
