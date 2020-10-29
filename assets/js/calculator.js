@@ -1,46 +1,52 @@
-jQuery(document).ready(function($) {
-	function reversePolish(newExpr) {
-		let expr = newExpr.split(" ");
-		let stack =[];
+let currentStack = false;
 
-		if (expr === '') {
-			return 0;
-		}
+function reversePolish(newExpr, stackParam) {
+	let expr = newExpr.split(" ");
+// console.log(expr);
+	let stack = (currentStack === false) ? [] : stackParam;
 
-		for (let i = 0; i < expr.length; i++) {
-			if ( !isNaN(expr[i]) && isFinite(expr[i]) ) {
-				stack.push(expr[i]);
-			} else {
-				let a = stack.pop();
-				let b = stack.pop();
+	if (expr === '') {
+		return 0;
+	}
 
-				if (expr[i] === "+") {
-					stack.push(parseInt(a) + parseInt(b));
-				} else if (expr[i] === "-") {
-					stack.push(parseInt(b) - parseInt(a));
-				} else if (expr[i] === "*") {
-					stack.push(parseInt(a) * parseInt(b));
-				} else if (expr[i] === "/") {
-					stack.push(parseInt(b) / parseInt(a));
-				}
-			}
-		}
-
-		if (stack.length > 1) {
-			return "ERROR";
+	for (let i = 0; i < expr.length; i++) {
+		if ( !isNaN(expr[i]) && isFinite(expr[i]) ) {
+			stack.push(expr[i]);
+// console.log('is a number and finite');
 		} else {
-			return stack[0];
+			let a = stack.pop();
+			let b = stack.pop();
+// console.log(a, b);
+			if (expr[i] === "+") {
+				stack.push(parseInt(a) + parseInt(b));
+			} else if (expr[i] === "-") {
+				stack.push(parseInt(b) - parseInt(a));
+			} else if (expr[i] === "*") {
+				stack.push(parseInt(a) * parseInt(b));
+			} else if (expr[i] === "/") {
+				stack.push(parseInt(b) / parseInt(a));
+			}
 		}
 	}
 
+	// if (stack.length > 1) {
+	// 	return "ERROR";
+	// } else {
+	// 	return stack[0];
+	// }
+console.log(stack);
+	return stack;
+}
+
+jQuery(document).ready(function($) {
 	$('.form-signin').submit(function(e) {
 		e.preventDefault();
 
-		let inputField = $('#inputText');
-		
-		let input = reversePolish( inputField.val() );
+		let inputField = $('#inputText');		
+		let input = reversePolish( inputField.val(), currentStack );
+		currentStack = input;
 		inputField.val('');
 
-		$('.response').text(input);
+		$('.response').text(input[input.length - 1]);
 	});
 });
