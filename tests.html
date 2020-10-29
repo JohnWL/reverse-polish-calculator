@@ -49,7 +49,10 @@
       <label for="inputText" class="sr-only">Input</label>
       <input type="text" id="inputText" class="form-control" placeholder="Input" required autofocus>
 
-      <button class="btn btn-lg btn-primary btn-block my-3" type="submit">Calculate</button>
+      <div class="btn-group w-100">
+        <button class="btn btn-lg btn-primary btn-block my-3 calculate-button" type="submit">Calculate</button>
+        <button class="btn btn-lg btn-danger btn-block my-3 clear-button" style="flex-basis: 25%;">Clear</button>
+      </div>
 
       <div class="alert alert-warning" role="alert">
         <div>Result: <span class="response"></span></div>

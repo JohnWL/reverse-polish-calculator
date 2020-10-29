@@ -49,4 +49,11 @@ jQuery(document).ready(function($) {
 
 		$('.response').text(input[input.length - 1]);
 	});
+
+	$('.clear-button').click(function(e) {
+		e.preventDefault();
+
+		currentStack = false;
+		$('.response').text('');
+	});
 });

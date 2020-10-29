@@ -4,17 +4,17 @@ QUnit.module('Multiple Inputs', function() {
 
 		(function($) {
 			$('#inputText').val('5');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('8');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('+');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 		})(jQuery);
@@ -29,12 +29,12 @@ QUnit.module('Single Line Input', function() {
 
 		(function($) {
 			$('#inputText').val('5 5 5 8 + + -');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('13 +');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 		})(jQuery);
@@ -49,27 +49,27 @@ QUnit.module('Negatives and Floats', function() {
 
 		(function($) {
 			$('#inputText').val('-3');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('-2');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('*');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('5');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('+');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 		})(jQuery);
@@ -84,27 +84,27 @@ QUnit.module('Floats and Division', function() {
 
 		(function($) {
 			$('#inputText').val('5');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('9');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('1');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('-');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 
 			$('#inputText').val('/');
-			$('.form-signin .btn').click();
+			$('.form-signin .calculate-button').click();
 			actual = $('.response').text();
 			assert.step(actual);
 		})(jQuery);
