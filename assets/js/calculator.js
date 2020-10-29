@@ -14,15 +14,17 @@ function reversePolish(newExpr, stackParam) {
 		} else {
 			let a = stack.pop();
 			let b = stack.pop();
+			a = parseFloat(a);
+			b = parseFloat(b);
 
 			if (expr[i] === "+") {
-				stack.push(parseInt(a) + parseInt(b));
+				stack.push( (a + b).toFixed(3) );
 			} else if (expr[i] === "-") {
-				stack.push(parseInt(b) - parseInt(a));
+				stack.push( (b - a).toFixed(3) );
 			} else if (expr[i] === "*") {
-				stack.push(parseInt(a) * parseInt(b));
+				stack.push( (a * b).toFixed(3) );
 			} else if (expr[i] === "/") {
-				stack.push(parseInt(b) / parseInt(a));
+				stack.push( (b / a).toFixed(3) );
 			}
 		}
 	}
@@ -39,7 +41,9 @@ jQuery(document).ready(function($) {
 		currentStack = input;
 		inputField.val('');
 
-		$('.response').text(input[input.length - 1]);
+		// Parse the last stack element to a float, and then convert to a string to remove trailing zeroes
+		let responseValue = parseFloat(input[input.length - 1]).toString();
+		$('.response').text(responseValue);
 	});
 
 	$('.clear-button').click(function(e) {

@@ -15,6 +15,7 @@ jQuery is used to collect the input field value after a form submission with the
 ## Future Possible Additions
 - Stricter input field validation to prevent non-numeric characters from being entered.
 - Add a calculator button interface.
+- Add more functionality for floats and decimals.
 - More descriptive error messages and error checks.
 - More test modules to cover possible use cases.
 
