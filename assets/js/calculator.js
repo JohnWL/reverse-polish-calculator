@@ -29,6 +29,10 @@ function reversePolish(newExpr, stackParam) {
 		}
 	}
 
+	if ( stack[0] === "NaN" ) {
+		return 'ERROR!';
+	}
+
 	return stack;
 }
 
@@ -41,6 +45,12 @@ jQuery(document).ready(function($) {
 		currentStack = input;
 		inputField.val('');
 
+		if (currentStack === 'ERROR!') {
+			$('.response').text(currentStack + ' Click Clear...');
+			$('.calculate-button').attr('disabled', 'true');
+			return false;
+		}
+
 		// Parse the last stack element to a float, and then convert to a string to remove trailing zeroes
 		let responseValue = parseFloat(input[input.length - 1]).toString();
 		$('.response').text(responseValue);
@@ -51,5 +61,6 @@ jQuery(document).ready(function($) {
 
 		currentStack = false;
 		$('.response').text('');
+		$('.calculate-button').removeAttr('disabled');
 	});
 });
