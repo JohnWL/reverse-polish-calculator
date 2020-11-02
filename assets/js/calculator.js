@@ -29,6 +29,7 @@ function reversePolish(newExpr, stackParam) {
 		}
 	}
 
+	// If the first element in the stack does not contain a number, return an error
 	if ( stack[0] === "NaN" ) {
 		return 'ERROR!';
 	}
@@ -37,6 +38,7 @@ function reversePolish(newExpr, stackParam) {
 }
 
 jQuery(document).ready(function($) {
+	// Calculate button form submit
 	$('.form-signin').submit(function(e) {
 		e.preventDefault();
 
@@ -56,6 +58,7 @@ jQuery(document).ready(function($) {
 		$('.response').text(responseValue);
 	});
 
+	// Clear button functionality
 	$('.clear-button').click(function(e) {
 		e.preventDefault();
 
